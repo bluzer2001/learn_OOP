@@ -2,32 +2,33 @@ from abc import ABC, abstractmethod
 from src.tasks.task import Task
 
 class TaskSorter(ABC):
+
+  def __init__(self):
+    self.key = lambda x: x
   
-  @abstractmethod
   def sort_tasks(self, tasks: list[Task], asc=False):
-    pass
+    return sorted(tasks, key=self.key, reverse=desc)
 
 
 class TaskByPrioritySorter(TaskSorter):
-  # TODO: Подумать как сократить
 
-  def sort_tasks(self, tasks: list[Task], desc=False):
-    return sorted(tasks, key=lambda x: x.priority, reverse=desc)
+  def __init__(self):
+    self.key = lambda x: x.priority
 
 
 class TaskByStatusSorter(TaskSorter):
 
-  def sort_tasks(self, tasks: list[Task], desc=False):
-    return sorted(tasks, key=lambda x: x.is_done, reverse=desc)
+  def __init__(self):
+    self.key = lambda x: x.is_done
 
 
 class TaskByNameSorter(TaskSorter):
 
-  def sort_tasks(self, tasks: list[Task], desc=False):
-    return sorted(tasks, key=lambda x: x.name, reverse=desc)
+  def __init__(self):
+    self.key = lambda x: x.name
 
 
 class TaskByCommentsSorter(TaskSorter):
 
-  def sort_tasks(self, tasks: list[Task], desc=False):
-    return sorted(tasks, key=lambda x: len(x.comments), reverse=desc)
+  def __init__(self):
+    self.key = lambda x: len(x.comments)
