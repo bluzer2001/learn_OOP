@@ -1,6 +1,6 @@
 from src.tasks.task import Task
 from src.tasks.sorters import TaskSorter
-
+from .task_exporter import TaskExporter
 
 class Project:
 
@@ -28,3 +28,6 @@ class Project:
 
   def get_sorted_tasks(self, sorter: TaskSorter):
     return sorter.sort_tasks(self.tasks)
+
+  def export_tasks(self, task_exporter: TaskExporter, **kwargs):
+    task_exporter.export_tasks(self.tasks, **kwargs)
