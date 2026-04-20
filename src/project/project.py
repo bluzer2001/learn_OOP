@@ -1,7 +1,6 @@
 from src.tasks.task import Task
 from src.tasks.sorters import TaskSorter
 
-
 class Project:
 
   def __init__(self, name: str):
