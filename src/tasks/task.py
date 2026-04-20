@@ -6,21 +6,19 @@ from .logger import Logger
 class Task:
 
 
-  def __init__(self, name, notifiers: list[BaseNotifier], priority: Priority = Priority.MEDIUM):
+  def __init__(self, name, notifier: BaseNotifier, priority: Priority = Priority.MEDIUM):
     self.name = name
     self.is_done = False
     self.comments = []
     self.tags = []
     self.priority = priority
     self.logger = Logger()
-    self.notifiers = notifiers
+    self.notifier = notifier
 
   def do(self):
     self.is_done = True
     self.logger.write_log("Задача сделана")
-    if self.notifiers:
-      for notifier in self.notifiers:
-        notifier.notify("Задача сделана")
+    self.notifier.notify("Задача сделана")
     
 
   def add_comment(self, text):
