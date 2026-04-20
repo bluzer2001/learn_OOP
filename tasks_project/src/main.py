@@ -1,5 +1,5 @@
 from src.user import User
-from src.project import Project
+from src.project.project import Project
 from src.tasks.task import Task
 from src.tasks.sorters import TaskByPrioritySorter
 
