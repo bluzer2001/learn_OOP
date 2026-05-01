@@ -4,7 +4,7 @@ import string
 
 CHARACTERS = string.ascii_letters + string.digits
 
-
+# TODO: разбить на 2 теста и сделать функцию для генерации тестовых данных
 def test_is_palindrome_return_true():
     len_str = randint(0, 100_000)
     random_str = ''.join(choice(CHARACTERS) for _ in range(len_str))

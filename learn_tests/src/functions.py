@@ -29,3 +29,7 @@ def is_palindrome(s):
     if s == s[::-1]:
         return True
     return False
+
+
+def reformat_name(name: str):
+    return name.strip().capitalize()
