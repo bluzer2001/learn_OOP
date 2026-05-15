@@ -1,0 +1,2 @@
+VALID_AGE = [0, 120]
+ADULT_AGE = 18
